@@ -1,0 +1,984 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Nhà đất Quận 7</title>
+<style>
+:root {
+  --bg: #f6f4ef;
+  --surface: #ffffff;
+  --surface-2: #efece4;
+  --text: #1d2420;
+  --muted: #5d6660;
+  --line: #ddd8cc;
+  --accent: #0f6e5a;
+  --accent-ink: #ffffff;
+  --accent-soft: #d8ece5;
+  --warn: #9a5b00;
+  --warn-soft: #fbecd2;
+  --river: #9cc7da;
+  --w-tanthuan: #f2c98a;
+  --w-tanhung: #a9d4b8;
+  --w-phuthuan: #b9c6ec;
+  --w-tanmy: #efb2a8;
+  --ward-stroke: #ffffff;
+  --shadow: 0 1px 2px rgba(20, 30, 25, .06), 0 6px 18px rgba(20, 30, 25, .06);
+  --radius: 14px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121614;
+    --surface: #1b211e;
+    --surface-2: #232b27;
+    --text: #e8ece9;
+    --muted: #a3ada7;
+    --line: #313a35;
+    --accent: #4fc3a1;
+    --accent-ink: #0b1411;
+    --accent-soft: #1d3a31;
+    --warn: #f0b55c;
+    --warn-soft: #3a2b12;
+    --river: #2f5f75;
+    --w-tanthuan: #8a6a35;
+    --w-tanhung: #3f7656;
+    --w-phuthuan: #4a5a8f;
+    --w-tanmy: #8d4f46;
+    --ward-stroke: #121614;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 6px 18px rgba(0, 0, 0, .25);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121614;
+  --surface: #1b211e;
+  --surface-2: #232b27;
+  --text: #e8ece9;
+  --muted: #a3ada7;
+  --line: #313a35;
+  --accent: #4fc3a1;
+  --accent-ink: #0b1411;
+  --accent-soft: #1d3a31;
+  --warn: #f0b55c;
+  --warn-soft: #3a2b12;
+  --river: #2f5f75;
+  --w-tanthuan: #8a6a35;
+  --w-tanhung: #3f7656;
+  --w-phuthuan: #4a5a8f;
+  --w-tanmy: #8d4f46;
+  --ward-stroke: #121614;
+  --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 6px 18px rgba(0, 0, 0, .25);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+a { color: var(--accent); }
+img, svg { max-width: 100%; }
+button, select, input { font: inherit; color: inherit; }
+
+.q7 { overflow-x: hidden; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+
+/* Top bar */
+.topbar {
+  position: sticky; top: 0; z-index: 20;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.topbar .wrap { display: flex; align-items: center; gap: 12px; min-height: 56px; }
+.brand { font-weight: 700; letter-spacing: -.01em; display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--text); }
+.brand-mark { width: 28px; height: 28px; border-radius: 8px; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; font-size: 13px; font-weight: 800; }
+.nav { margin-left: auto; display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+.nav::-webkit-scrollbar { display: none; }
+.nav a { white-space: nowrap; text-decoration: none; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 14px; }
+.nav a:hover { background: var(--surface-2); color: var(--text); }
+
+/* Preview banner */
+.preview-note { background: var(--warn-soft); color: var(--warn); font-size: 13px; padding: 8px 0; }
+
+/* Hero */
+.hero { padding: 36px 0 24px; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 28px; align-items: center; }
+.hero h1 { font-size: clamp(28px, 5vw, 44px); line-height: 1.15; margin: 0 0 12px; letter-spacing: -.02em; }
+.hero p.lead { color: var(--muted); font-size: 17px; margin: 0 0 20px; max-width: 46ch; }
+.hero-art { border-radius: var(--radius); overflow: hidden; background: var(--surface); box-shadow: var(--shadow); }
+.hero-art svg { display: block; width: 100%; height: auto; }
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 8px; }
+.stat { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; min-width: 0; }
+.stat b { display: block; font-size: 22px; line-height: 1.2; }
+.stat span { color: var(--muted); font-size: 13px; }
+.btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; border-radius: 999px; background: var(--accent); color: var(--accent-ink); text-decoration: none; font-weight: 600; border: 0; cursor: pointer; }
+.btn.ghost { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+.cta { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; }
+
+/* Sections */
+section { padding: 28px 0; }
+.section-head { display: flex; align-items: end; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+h2 { font-size: clamp(22px, 3.4vw, 30px); margin: 0; letter-spacing: -.015em; }
+.sub { color: var(--muted); margin: 4px 0 0; font-size: 15px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+
+/* Map */
+.map-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 16px; }
+.map-card { padding: 12px; }
+.map-card svg { display: block; width: 100%; height: auto; }
+.ward-shape { stroke: var(--ward-stroke); stroke-width: 2.5; cursor: pointer; transition: filter .15s, opacity .15s; }
+.ward-shape:hover { filter: brightness(1.06) saturate(1.15); }
+.ward-shape:focus { outline: none; }
+.ward-shape:focus-visible, .ward-shape.active { stroke: var(--text); stroke-width: 3; }
+.ward-shape.dim { opacity: .45; }
+.nw-tanthuan { fill: var(--w-tanthuan); }
+.nw-tanhung { fill: var(--w-tanhung); }
+.nw-phuthuan { fill: var(--w-phuthuan); }
+.nw-tanmy { fill: var(--w-tanmy); }
+.nw-split { fill: url(#splitFill); }
+.ward-label { font-size: 11px; font-weight: 600; fill: var(--text); pointer-events: none; text-anchor: middle; }
+.ward-count { font-size: 10px; fill: var(--muted); pointer-events: none; text-anchor: middle; }
+.river { fill: none; stroke: var(--river); stroke-linecap: round; }
+.river-label { font-size: 10px; fill: var(--muted); font-style: italic; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13px; color: var(--muted); padding: 8px 4px 2px; }
+.legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+.map-caption { font-size: 12px; color: var(--muted); padding: 0 4px; }
+.ward-panel { padding: 16px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.ward-panel h3 { margin: 0; font-size: 20px; }
+.ward-panel .pill { align-self: flex-start; }
+.ward-panel ul { margin: 0; padding-left: 18px; }
+.newward-list { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.newward-list li { display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: 8px; font-size: 14px; }
+.newward-list i { width: 12px; height: 12px; border-radius: 3px; margin-top: 5px; }
+
+.pill { display: inline-block; font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+.pill.sample { background: var(--warn-soft); color: var(--warn); }
+.pill.muted { background: var(--surface-2); color: var(--muted); }
+
+/* Projects */
+.chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.chip { border: 1px solid var(--line); background: var(--surface); padding: 6px 12px; border-radius: 999px; font-size: 14px; cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.proj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 14px; margin-top: 14px; }
+.proj { padding: 16px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.proj h3 { margin: 0; font-size: 18px; line-height: 1.3; }
+.proj .meta { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 2px 10px; font-size: 14px; margin: 0; }
+.proj .meta dt { color: var(--muted); }
+.proj .meta dd { margin: 0; overflow-wrap: anywhere; }
+.proj p { margin: 0; font-size: 14px; color: var(--muted); }
+.price-box { background: var(--surface-2); border-radius: 10px; padding: 8px 10px; font-size: 14px; }
+.price-box b { font-size: 16px; }
+.price-box small { display: block; color: var(--muted); font-size: 12px; }
+.subareas { display: flex; flex-wrap: wrap; gap: 4px; }
+.subareas span { font-size: 12px; background: var(--surface-2); padding: 2px 8px; border-radius: 6px; }
+.proj-actions { margin-top: auto; }
+.linkbtn { background: none; border: 0; padding: 0; color: var(--accent); font-weight: 600; cursor: pointer; font-size: 14px; }
+
+/* Listings */
+.filters { padding: 14px; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; align-items: end; }
+.field { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.field label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+.field select, .field input {
+  width: 100%; min-width: 0; padding: 9px 10px; border-radius: 10px; border: 1px solid var(--line);
+  background: var(--bg); font-size: 15px;
+}
+.field.wide { grid-column: span 2; }
+.seg { display: flex; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--bg); }
+.seg button { flex: 1; border: 0; background: transparent; padding: 9px 6px; cursor: pointer; font-size: 14px; white-space: nowrap; }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); font-weight: 600; }
+.result-bar { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; margin: 14px 0 10px; font-size: 14px; color: var(--muted); }
+.listing-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 14px; }
+.listing { overflow: hidden; display: flex; flex-direction: column; min-width: 0; }
+.listing .thumb { position: relative; aspect-ratio: 16 / 9; background: var(--surface-2); }
+.listing .thumb svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.listing .thumb .tags { position: absolute; top: 8px; left: 8px; display: flex; gap: 6px; flex-wrap: wrap; }
+.listing .thumb .tags .pill { box-shadow: 0 1px 3px rgba(0, 0, 0, .15); }
+.listing .body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 6px; }
+.listing h3 { margin: 0; font-size: 16px; line-height: 1.35; }
+.listing .price { font-size: 20px; font-weight: 700; color: var(--accent); }
+.listing .price small { font-size: 13px; font-weight: 500; color: var(--muted); }
+.listing .facts { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 14px; color: var(--muted); }
+.listing .where { font-size: 14px; }
+.listing .note { font-size: 13px; color: var(--muted); }
+.empty { padding: 28px; text-align: center; color: var(--muted); }
+
+/* Market + sources */
+.notes { display: grid; gap: 10px; }
+.note-item { padding: 14px 16px; }
+.note-item small { color: var(--muted); display: block; margin-top: 4px; }
+.sources ol { margin: 0; padding: 16px 16px 16px 36px; display: grid; gap: 8px; font-size: 14px; }
+.sources li { overflow-wrap: anywhere; }
+.sources small { color: var(--muted); }
+footer { padding: 24px 0 40px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); margin-top: 20px; }
+
+@media (max-width: 860px) {
+  .hero-grid, .map-grid { grid-template-columns: minmax(0, 1fr); }
+  .filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .field.wide { grid-column: span 2; }
+}
+@media (max-width: 480px) {
+  .hero { padding-top: 22px; }
+  .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+  .stat { padding: 8px; }
+  .stat b { font-size: 18px; }
+  .stat span { font-size: 12px; }
+  .brand-text small { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Bản xem trước: tổng quan 10 phường, các dự án lớn và tin rao bất động sản khu vực Quận 7 cũ, TP.HCM.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="q7" lang="vi">
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="#top"><span class="brand-mark">Q7</span><span class="brand-text">Nhà đất Quận 7 <small class="sub">· bản xem trước</small></span></a>
+      <nav class="nav" aria-label="Mục lục">
+        <a href="#phuong">Phường</a>
+        <a href="#du-an">Dự án</a>
+        <a href="#tin-rao">Tin rao</a>
+        <a href="#nguon">Nguồn</a>
+      </nav>
+    </div>
+  </header>
+  <div class="preview-note" id="sample-note"><div class="wrap">Bản xem trước. Các tin đăng có nhãn <b>“Tin mẫu”</b> chỉ để minh họa bố cục, không phải bất động sản đang giao dịch thật.</div></div>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <h1>Tìm nhà ở Quận 7, gọn trong một trang</h1>
+          <p class="lead">Tổng quan 10 phường cũ, các khu đô thị và dự án lớn như Phú Mỹ Hưng, Sunrise City, Him Lam Kênh Tẻ, cùng danh sách tin bán và cho thuê có bộ lọc theo phường, loại nhà, giá và diện tích.</p>
+          <div class="cta"><a class="btn" href="#tin-rao">Xem tin rao</a><a class="btn ghost" href="#phuong">Sơ đồ phường</a></div>
+          <div class="stats">
+            <div class="stat"><b id="stat-wards">10</b><span>phường cũ</span></div>
+            <div class="stat"><b id="stat-projects">0</b><span>dự án, khu</span></div>
+            <div class="stat"><b id="stat-listings">0</b><span id="stat-listings-label">tin</span></div>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <svg viewBox="0 0 480 300">
+            <defs>
+              <linearGradient id="heroSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7d9a8"/><stop offset=".6" stop-color="#f3b58a"/><stop offset="1" stop-color="#e79b7a"/></linearGradient>
+              <linearGradient id="heroWater" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5f9fb8"/><stop offset="1" stop-color="#2f6c86"/></linearGradient>
+            </defs>
+            <rect width="480" height="300" fill="url(#heroSky)"/>
+            <circle cx="370" cy="92" r="34" fill="#fff4dc" opacity=".9"/>
+            <g fill="#3c5a55">
+              <rect x="30" y="120" width="40" height="100"/><rect x="76" y="90" width="34" height="130"/><rect x="116" y="60" width="48" height="160"/>
+              <rect x="170" y="100" width="30" height="120"/><rect x="206" y="76" width="44" height="144"/><rect x="256" y="112" width="36" height="108"/>
+              <rect x="298" y="84" width="40" height="136"/><rect x="344" y="128" width="34" height="92"/><rect x="384" y="104" width="46" height="116"/><rect x="436" y="140" width="34" height="80"/>
+            </g>
+            <g fill="#ffe9b0" opacity=".75">
+              <rect x="124" y="72" width="8" height="8"/><rect x="140" y="72" width="8" height="8"/><rect x="124" y="92" width="8" height="8"/><rect x="148" y="112" width="8" height="8"/>
+              <rect x="214" y="90" width="8" height="8"/><rect x="230" y="110" width="8" height="8"/><rect x="306" y="98" width="8" height="8"/><rect x="322" y="118" width="8" height="8"/>
+              <rect x="392" y="118" width="8" height="8"/><rect x="408" y="138" width="8" height="8"/><rect x="84" y="104" width="8" height="8"/>
+            </g>
+            <path d="M0 214 L480 214 L480 300 L0 300 Z" fill="url(#heroWater)"/>
+            <path d="M40 214 Q 240 150 440 214" fill="none" stroke="#f4f1ea" stroke-width="4"/>
+            <g stroke="#f4f1ea" stroke-width="2"><line x1="120" y1="186" x2="120" y2="214"/><line x1="180" y1="171" x2="180" y2="214"/><line x1="240" y1="166" x2="240" y2="214"/><line x1="300" y1="171" x2="300" y2="214"/><line x1="360" y1="186" x2="360" y2="214"/></g>
+            <g stroke="#ffffff" stroke-opacity=".35" stroke-width="2"><line x1="60" y1="240" x2="140" y2="240"/><line x1="220" y1="256" x2="320" y2="256"/><line x1="360" y1="236" x2="440" y2="236"/></g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section id="phuong">
+      <div class="wrap">
+        <div class="section-head">
+          <div><h2>10 phường của Quận 7 (cũ)</h2><p class="sub">Màu thể hiện phường mới sau sắp xếp 1/7/2025.</p></div>
+        </div>
+        <div class="map-grid">
+          <div class="card map-card">
+            <div id="map"></div>
+            <div class="legend" id="legend"></div>
+            <div class="map-caption">Sơ đồ minh họa vị trí tương đối, không theo tỷ lệ và không phải ranh giới chính thức.</div>
+          </div>
+          <div class="card ward-panel" id="ward-panel" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="du-an">
+      <div class="wrap">
+        <div class="section-head">
+          <div><h2>Dự án và khu dân cư lớn</h2><p class="sub">Năm bàn giao là mốc tham khảo. Giá chỉ ghi khi có nguồn công khai, kèm thời điểm.</p></div>
+        </div>
+        <div class="chips" id="proj-chips" role="group" aria-label="Lọc dự án theo phường"></div>
+        <div class="proj-grid" id="proj-grid"></div>
+      </div>
+    </section>
+
+    <section id="tin-rao">
+      <div class="wrap">
+        <div class="section-head">
+          <div><h2>Tin bán và cho thuê</h2><p class="sub">Lọc theo phường, loại nhà, mức giá và diện tích.</p></div>
+        </div>
+        <form class="card filters" onsubmit="return false" aria-label="Bộ lọc tin rao">
+          <div class="field wide">
+            <label>Nhu cầu</label>
+            <div class="seg" id="f-mode" role="group" aria-label="Bán hoặc cho thuê">
+              <button type="button" data-mode="all" aria-pressed="true">Tất cả</button>
+              <button type="button" data-mode="ban" aria-pressed="false">Mua</button>
+              <button type="button" data-mode="thue" aria-pressed="false">Thuê</button>
+            </div>
+          </div>
+          <div class="field"><label for="f-ward">Phường</label><select id="f-ward"></select></div>
+          <div class="field"><label for="f-type">Loại nhà</label><select id="f-type"></select></div>
+          <div class="field"><label for="f-price">Mức giá</label><select id="f-price"></select></div>
+          <div class="field"><label for="f-area">Diện tích</label><select id="f-area"></select></div>
+          <div class="field wide"><label for="f-q">Tìm theo từ khóa</label><input id="f-q" type="search" placeholder="VD: Sunrise, Nguyễn Hữu Thọ, 2 phòng ngủ"></div>
+          <div class="field"><label for="f-sort">Sắp xếp</label>
+            <select id="f-sort">
+              <option value="new">Mặc định</option>
+              <option value="price-asc">Giá thấp → cao</option>
+              <option value="price-desc">Giá cao → thấp</option>
+              <option value="area-desc">Diện tích lớn → nhỏ</option>
+            </select>
+          </div>
+          <div class="field"><label>&nbsp;</label><button type="button" class="btn ghost" id="f-reset">Xóa lọc</button></div>
+        </form>
+        <div class="result-bar"><span id="result-count"></span></div>
+        <div class="listing-grid" id="listing-grid"></div>
+      </div>
+    </section>
+
+    <section id="thi-truong">
+      <div class="wrap">
+        <div class="section-head"><div><h2>Mặt bằng giá tham khảo</h2><p class="sub">Phần lớn là giá rao bán, không phải giá giao dịch thực tế.</p></div></div>
+        <div class="notes" id="market-notes"></div>
+      </div>
+    </section>
+
+    <section id="nguon">
+      <div class="wrap">
+        <div class="section-head"><div><h2>Nguồn tham khảo</h2></div></div>
+        <div class="card sources"><ol id="sources"></ol></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      Bản xem trước, cập nhật <span id="updated"></span>. Thông tin dự án tổng hợp từ nguồn công khai để tham khảo, không phải tư vấn đầu tư; vui lòng kiểm tra pháp lý và giá thực tế trước khi giao dịch. Trang không thu thập dữ liệu người xem.
+    </div>
+  </footer>
+</div>
+
+<script>
+/*
+ * Dữ liệu trang Bất động sản Quận 7.
+ *
+ * HƯỚNG DẪN THÊM TIN THẬT CỦA CHỦ:
+ *   Thêm một mục vào mảng `listings` bên dưới, theo đúng mẫu:
+ *   {
+ *     id: "chu-001",                 // mã riêng, không trùng
+ *     sample: false,                 // false = tin thật (không hiện nhãn "Tin mẫu")
+ *     mode: "ban",                   // "ban" (bán) hoặc "thue" (cho thuê)
+ *     type: "can-ho",                // xem `types` bên dưới
+ *     ward: "tan-phong",             // mã phường cũ, xem `wards` bên dưới
+ *     project: "sunrise-city",       // mã dự án trong `projects`, hoặc null
+ *     title: "Căn hộ 2PN view sông",
+ *     area: 76,                      // m²
+ *     price: 5900000000,             // VNĐ: giá bán, hoặc giá thuê mỗi tháng
+ *     bedrooms: 2, bathrooms: 2,
+ *     address: "Nguyễn Hữu Thọ",
+ *     note: "Sổ hồng, nội thất cơ bản",
+ *     contact: "0900 000 000"
+ *   }
+ *   Sau đó chạy `node build.mjs` để tạo lại dist/index.html.
+ */
+window.Q7_DATA = {
+  updated: "14/11/2026",
+
+  /* Mười phường cũ của Quận 7 (trước 1/7/2025) và phường mới tương ứng
+     theo Nghị quyết 1685/NQ-UBTVQH15. `map` là vị trí ô trên sơ đồ minh họa. */
+  wards: [
+    { id: "tan-kieng",      name: "Tân Kiểng",      newWard: "Tân Hưng",   note: "Khu dân cư hiện hữu quanh Lâm Văn Bền, Trần Xuân Soạn; gần Quận 4 qua kênh Tẻ." },
+    { id: "tan-hung",       name: "Tân Hưng",       newWard: "Tân Hưng",   note: "Trục Nguyễn Hữu Thọ phía bắc: Sunrise City, Him Lam Kênh Tẻ, Lotte Mart Quận 7." },
+    { id: "tan-thuan-tay",  name: "Tân Thuận Tây",  newWard: "Tân Thuận",  note: "Đầu cầu Tân Thuận, trục Huỳnh Tấn Phát – Nguyễn Văn Linh; gần trung tâm Quận 1, Quận 4." },
+    { id: "tan-thuan-dong", name: "Tân Thuận Đông", newWard: "Tân Thuận",  note: "Khu chế xuất Tân Thuận và các khu dân cư ven sông Sài Gòn." },
+    { id: "tan-quy",        name: "Tân Quy",        newWard: "Tân Hưng",   note: "Khu dân cư hiện hữu, nhiều nhà phố hẻm và đường Lê Văn Lương, Nguyễn Thị Thập." },
+    { id: "binh-thuan",     name: "Bình Thuận",     newWard: "Tân Thuận",  note: "Giữa trục Huỳnh Tấn Phát; nhà phố, căn hộ tầm trung." },
+    { id: "phu-thuan",      name: "Phú Thuận",      newWard: "Phú Thuận",  note: "Ven sông phía đông, trục Đào Trí – Huỳnh Tấn Phát; nhiều dự án căn hộ mới." },
+    { id: "tan-phong",      name: "Tân Phong",      newWard: "Tân Hưng",   note: "Lõi Phú Mỹ Hưng: Nam Thiên, Hưng Vượng, Sky Garden, Hưng Phúc, Riverpark; SC VivoCity, RMIT." },
+    { id: "tan-phu",        name: "Tân Phú",        newWard: "Tân Mỹ",     note: "Phú Mỹ Hưng phía đông nam: Crescent Mall, Bệnh viện FV, The Midtown, hồ Bán Nguyệt." },
+    { id: "phu-my",         name: "Phú Mỹ",         newWard: "Phú Thuận / Tân Mỹ", note: "Chân cầu Phú Mỹ, giáp Nhà Bè; được chia cho phường Phú Thuận và Tân Mỹ mới." }
+  ],
+
+  newWards: [
+    { name: "Tân Thuận", from: "Tân Thuận Đông, Tân Thuận Tây, Bình Thuận" },
+    { name: "Tân Hưng",  from: "Tân Hưng, Tân Kiểng, Tân Quy, Tân Phong" },
+    { name: "Phú Thuận", from: "Phú Thuận và một phần Phú Mỹ" },
+    { name: "Tân Mỹ",    from: "Tân Phú và phần còn lại của Phú Mỹ" }
+  ],
+
+  types: [
+    { id: "can-ho",     name: "Căn hộ" },
+    { id: "nha-pho",    name: "Nhà phố" },
+    { id: "biet-thu",   name: "Biệt thự" },
+    { id: "dat-nen",    name: "Đất nền" },
+    { id: "mat-bang",   name: "Mặt bằng / Văn phòng" }
+  ],
+
+  /* Dự án và khu dân cư lớn. Năm bàn giao là mốc tham khảo (khoảng).
+     priceRange: giá tham khảo triệu đồng/m² kèm nguồn và thời điểm; null = chưa có số liệu đáng tin. */
+  projects: [
+    {
+      id: "phu-my-hung", name: "Khu đô thị Phú Mỹ Hưng", kind: "Khu đô thị",
+      developer: "Công ty Phú Mỹ Hưng (liên doanh CT&D Đài Loan – IPC TP.HCM)",
+      wards: ["tan-phong", "tan-phu"], year: "Từ thập niên 1990, vẫn đang phát triển",
+      desc: "Khu đô thị kiểu mẫu ở Nam Sài Gòn dọc đại lộ Nguyễn Văn Linh, gồm nhiều khu nhỏ: Mỹ Văn, Mỹ Khang, Mỹ Thái, Mỹ Gia, Nam Thiên, Hưng Vượng, Sky Garden, Garden Plaza, Grand View, Riverside, Cảnh Đồi, Hưng Gia, Hưng Phúc, Scenic Valley, Riverpark, The Midtown.",
+      subareas: ["Mỹ Văn", "Mỹ Khang", "Mỹ Thái", "Mỹ Gia", "Nam Thiên", "Hưng Vượng", "Sky Garden", "Garden Plaza", "Grand View", "Riverside", "Cảnh Đồi", "Hưng Gia", "Hưng Phúc", "Scenic Valley", "Riverpark", "The Midtown"],
+      priceRange: null
+    },
+    {
+      id: "sunrise-city", name: "Sunrise City", kind: "Căn hộ",
+      developer: "Novaland", wards: ["tan-hung"], year: "Khoảng 2012–2015",
+      desc: "Tổ hợp căn hộ cao tầng tại 23–27 Nguyễn Hữu Thọ, gần Lotte Mart Quận 7.",
+      priceRange: { min: 70, max: 88, unit: "triệu/m²", basis: "Giá rao bán phổ biến", source: "batdongsan.com.vn", date: "08/2026" }
+    },
+    {
+      id: "sunrise-city-view", name: "Sunrise City View", kind: "Căn hộ",
+      developer: "Novaland", wards: ["tan-hung"], year: "Khoảng 2018",
+      desc: "Dự án căn hộ ở 33 Nguyễn Hữu Thọ, cạnh cụm Sunrise City.",
+      priceRange: null
+    },
+    {
+      id: "him-lam-kenh-te", name: "Khu dân cư Him Lam Kênh Tẻ", kind: "Khu dân cư",
+      developer: "Tập đoàn Him Lam", wards: ["tan-hung"], year: "Từ những năm 2000",
+      desc: "Khu nhà phố, biệt thự quy hoạch bài bản bên kênh Tẻ, gần cầu Kênh Tẻ nối Quận 4.",
+      priceRange: null
+    },
+    {
+      id: "hung-phuc", name: "Hưng Phúc (Happy Residence)", kind: "Căn hộ",
+      developer: "Phú Mỹ Hưng", wards: ["tan-phong"], year: "Khoảng 2018–2019",
+      desc: "Cụm căn hộ thấp tầng trong Phú Mỹ Hưng, gần trường quốc tế và công viên.",
+      priceRange: null
+    },
+    {
+      id: "riverpark", name: "Riverpark Residence & Riverpark Premier", kind: "Căn hộ",
+      developer: "Phú Mỹ Hưng", wards: ["tan-phong"], year: "Khoảng 2016–2020",
+      desc: "Căn hộ cao cấp ven sông trong Phú Mỹ Hưng, gần cầu Ánh Sao và hồ Bán Nguyệt.",
+      priceRange: null
+    },
+    {
+      id: "scenic-valley", name: "Scenic Valley", kind: "Căn hộ",
+      developer: "Phú Mỹ Hưng", wards: ["tan-phong"], year: "Khoảng 2017–2019",
+      desc: "Cụm căn hộ thuộc Phú Mỹ Hưng, gần SC VivoCity và đại lộ Nguyễn Văn Linh.",
+      priceRange: null
+    },
+    {
+      id: "midtown", name: "The Midtown", kind: "Căn hộ",
+      developer: "Phú Mỹ Hưng", wards: ["tan-phu"], year: "Khoảng 2018–2021",
+      desc: "Khu căn hộ trung tâm Phú Mỹ Hưng, gần Crescent Mall và Bệnh viện FV.",
+      priceRange: null
+    },
+    {
+      id: "sky-garden", name: "Sky Garden", kind: "Căn hộ",
+      developer: "Phú Mỹ Hưng", wards: ["tan-phong"], year: "Khoảng 2005–2008",
+      desc: "Một trong các cụm căn hộ đầu tiên của Phú Mỹ Hưng, đường Phạm Văn Nghị.",
+      priceRange: null
+    },
+    {
+      id: "eco-green", name: "Eco Green Saigon", kind: "Căn hộ",
+      developer: "Xuân Mai Corp", wards: ["tan-thuan-tay"], year: "Khoảng 2021",
+      desc: "Tổ hợp căn hộ ở góc Nguyễn Văn Linh – Huỳnh Tấn Phát, gần cầu Tân Thuận.",
+      priceRange: null
+    },
+    {
+      id: "sunshine-city", name: "Sunshine City Sài Gòn", kind: "Căn hộ",
+      developer: "Sunshine Group", wards: ["phu-thuan"], year: "Khoảng 2021–2022",
+      desc: "Tổ hợp căn hộ cao tầng ven sông ở phường Phú Thuận.",
+      priceRange: null
+    },
+    {
+      id: "q7-riverside", name: "Q7 Saigon Riverside", kind: "Căn hộ",
+      developer: "Hưng Thịnh", wards: ["phu-thuan"], year: "Khoảng 2021–2022",
+      desc: "Dự án căn hộ trên đường Đào Trí, ven sông Sài Gòn.",
+      priceRange: null
+    },
+    {
+      id: "vlasta", name: "Vlasta Premier – Phú Thuận", kind: "Căn hộ",
+      developer: "Văn Phú", wards: ["phu-thuan"], year: "Đang chào bán",
+      desc: "Dự án căn hộ mới quy mô hơn 600 căn tại phường Phú Thuận.",
+      priceRange: { min: 95, max: 95, unit: "triệu/m²", basis: "Giá trung bình chào bán", source: "Thị trường Tài chính Tiền tệ", date: "2026" }
+    },
+    {
+      id: "hagl-thanh-binh", name: "Hoàng Anh Thanh Bình", kind: "Căn hộ",
+      developer: "Hoàng Anh Gia Lai", wards: ["tan-hung"], year: "Khoảng 2009",
+      desc: "Chung cư trên đường D4, khu Tân Hưng, gần Lotte Mart.",
+      priceRange: null
+    },
+    {
+      id: "docklands", name: "Docklands Sài Gòn", kind: "Căn hộ",
+      developer: "Đang cập nhật", wards: ["tan-thuan-dong"], year: "Khoảng 2011",
+      desc: "Chung cư ven sông Sài Gòn ở khu Tân Thuận Đông.",
+      priceRange: null
+    },
+    {
+      id: "era-town", name: "Era Town", kind: "Căn hộ",
+      developer: "Đức Khải", wards: ["phu-my"], year: "Khoảng 2016–2017",
+      desc: "Khu căn hộ quy mô lớn gần chân cầu Phú Mỹ, đường Nguyễn Lương Bằng.",
+      priceRange: null
+    }
+  ],
+
+  /* Giá tham khảo theo mặt bằng chung (không phải giá giao dịch). */
+  marketNotes: [
+    { text: "Căn hộ khu vực Quận 7 cũ đang được rao phổ biến khoảng 70–95 triệu/m²; một số dự án mới chạm 90 đến hơn 100 triệu/m².", source: "batdongsan.com.vn; Thị trường Tài chính Tiền tệ", date: "2026" },
+    { text: "Căn hộ ven sông cao cấp trong Phú Mỹ Hưng có tin rao trên 120 triệu/m² (tin đơn lẻ, không đại diện cả dự án).", source: "batdongsan.com.vn", date: "2026" }
+  ],
+
+  sources: [
+    { name: "Nghị quyết 1685/NQ-UBTVQH15 về sắp xếp đơn vị hành chính cấp xã TP.HCM (hiệu lực 1/7/2025)", url: "https://thuviennhadat.vn/phap-ly-nha-dat/quan-7-doi-thanh-phuong-gi-cac-phuong-hinh-thanh-tu-quan-7-cu-690220.html", date: "12/07/2025" },
+    { name: "Batdongsan.com.vn – tin rao căn hộ Quận 7, Sunrise City", url: "https://batdongsan.com.vn/ban-can-ho-chung-cu-quan-7", date: "08/2026" },
+    { name: "Thị trường Tài chính Tiền tệ – Thị trường khu Nam TP.HCM", url: "https://thitruongtaichinhtiente.vn/thi-truong-khu-nam-tp-ho-chi-minh-xuat-hien-can-ho-gia-chi-tu-68-trieu-dong-m2-86276.html", date: "2026" },
+    { name: "Wiki Batdongsan – Quận 7 sau sáp nhập", url: "https://wiki.batdongsan.com.vn/wiki/quan-7-841176", date: "2025" }
+  ],
+
+  /* TIN MẪU: chỉ để minh họa bố cục, KHÔNG phải tin rao thật. Xóa khi có tin của chủ. */
+  listings: [
+    { id: "mau-01", sample: true, mode: "ban",  type: "can-ho",   ward: "tan-hung",      project: "sunrise-city",   title: "Căn hộ 2 phòng ngủ",          area: 76,  price: 5900000000,  bedrooms: 2, bathrooms: 2, address: "Nguyễn Hữu Thọ" },
+    { id: "mau-02", sample: true, mode: "thue", type: "can-ho",   ward: "tan-hung",      project: "sunrise-city",   title: "Căn hộ 1 phòng ngủ có nội thất", area: 56, price: 15000000,    bedrooms: 1, bathrooms: 1, address: "Nguyễn Hữu Thọ" },
+    { id: "mau-03", sample: true, mode: "ban",  type: "can-ho",   ward: "tan-phong",     project: "riverpark",      title: "Căn hộ 3 phòng ngủ view sông", area: 128, price: 16400000000, bedrooms: 3, bathrooms: 2, address: "Phú Mỹ Hưng" },
+    { id: "mau-04", sample: true, mode: "thue", type: "can-ho",   ward: "tan-phong",     project: "scenic-valley",  title: "Căn hộ 2 phòng ngủ",          area: 77,  price: 22000000,    bedrooms: 2, bathrooms: 2, address: "Phú Mỹ Hưng" },
+    { id: "mau-05", sample: true, mode: "ban",  type: "biet-thu", ward: "tan-phong",     project: "phu-my-hung",    title: "Biệt thự song lập",           area: 250, price: 48000000000, bedrooms: 4, bathrooms: 5, address: "Phú Mỹ Hưng" },
+    { id: "mau-06", sample: true, mode: "ban",  type: "nha-pho",  ward: "tan-hung",      project: "him-lam-kenh-te", title: "Nhà phố 1 trệt 3 lầu",       area: 100, price: 22000000000, bedrooms: 4, bathrooms: 4, address: "Khu Him Lam" },
+    { id: "mau-07", sample: true, mode: "ban",  type: "nha-pho",  ward: "tan-quy",       project: null,             title: "Nhà hẻm xe hơi",              area: 60,  price: 7500000000,  bedrooms: 3, bathrooms: 3, address: "Lê Văn Lương" },
+    { id: "mau-08", sample: true, mode: "ban",  type: "can-ho",   ward: "phu-thuan",     project: "q7-riverside",   title: "Căn hộ 2 phòng ngủ",          area: 67,  price: 3600000000,  bedrooms: 2, bathrooms: 2, address: "Đào Trí" },
+    { id: "mau-09", sample: true, mode: "thue", type: "can-ho",   ward: "tan-thuan-tay", project: "eco-green",      title: "Căn hộ 2 phòng ngủ",          area: 70,  price: 13000000,    bedrooms: 2, bathrooms: 2, address: "Nguyễn Văn Linh" },
+    { id: "mau-10", sample: true, mode: "thue", type: "mat-bang", ward: "tan-phu",       project: "midtown",        title: "Mặt bằng kinh doanh khối đế", area: 120, price: 90000000,    bedrooms: 0, bathrooms: 1, address: "Phú Mỹ Hưng" },
+    { id: "mau-11", sample: true, mode: "ban",  type: "nha-pho",  ward: "binh-thuan",    project: null,             title: "Nhà phố mặt tiền đường nhỏ",  area: 80,  price: 12500000000, bedrooms: 4, bathrooms: 4, address: "Huỳnh Tấn Phát" },
+    { id: "mau-12", sample: true, mode: "ban",  type: "can-ho",   ward: "phu-my",        project: "era-town",       title: "Căn hộ 2 phòng ngủ",          area: 67,  price: 2900000000,  bedrooms: 2, bathrooms: 2, address: "Nguyễn Lương Bằng" },
+    { id: "mau-13", sample: true, mode: "ban",  type: "dat-nen",  ward: "phu-thuan",     project: null,             title: "Lô đất thổ cư",               area: 90,  price: 9000000000,  bedrooms: 0, bathrooms: 0, address: "Phú Thuận" },
+    { id: "mau-14", sample: true, mode: "thue", type: "nha-pho",  ward: "tan-kieng",     project: null,             title: "Nhà nguyên căn",              area: 70,  price: 18000000,    bedrooms: 3, bathrooms: 3, address: "Lâm Văn Bền" }
+  ]
+};
+
+</script>
+<script>
+(function () {
+  "use strict";
+  var D = window.Q7_DATA;
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  var wardById = {}; D.wards.forEach(function (w) { wardById[w.id] = w; });
+  var projById = {}; D.projects.forEach(function (p) { projById[p.id] = p; });
+  var typeById = {}; D.types.forEach(function (t) { typeById[t.id] = t; });
+
+  var NEW_WARD_CLASS = { "Tân Thuận": "nw-tanthuan", "Tân Hưng": "nw-tanhung", "Phú Thuận": "nw-phuthuan", "Tân Mỹ": "nw-tanmy" };
+  var NEW_WARD_VAR = { "Tân Thuận": "--w-tanthuan", "Tân Hưng": "--w-tanhung", "Phú Thuận": "--w-phuthuan", "Tân Mỹ": "--w-tanmy" };
+
+  /* ---------- Formatting ---------- */
+  function fmtNum(n, d) {
+    return n.toLocaleString("vi-VN", { maximumFractionDigits: d == null ? 1 : d });
+  }
+  function fmtPrice(l) {
+    if (l.mode === "thue") {
+      return fmtNum(l.price / 1e6, 1) + " triệu<small>/tháng</small>";
+    }
+    if (l.price >= 1e9) return fmtNum(l.price / 1e9, 2) + " tỷ";
+    return fmtNum(l.price / 1e6, 0) + " triệu";
+  }
+  function perM2(l) {
+    if (l.mode !== "ban" || !l.area) return "";
+    return "≈ " + fmtNum(l.price / l.area / 1e6, 1) + " tr/m²";
+  }
+
+  /* ---------- Schematic ward map (not to scale) ---------- */
+  var P = {
+    A: [20, 44], B: [110, 38], C: [200, 42], D: [282, 36], E: [356, 50],
+    F: [20, 122], G: [110, 118], H: [130, 120], I: [200, 126], J: [250, 116], K: [282, 120], L: [364, 130],
+    M: [22, 206], N: [130, 198], O: [152, 204], Q: [262, 200], R: [362, 212], Pp: [250, 206],
+    S: [26, 300], T: [150, 296], U: [262, 304], V: [350, 292]
+  };
+  var SHAPES = {
+    "tan-kieng": ["A", "B", "G", "F"],
+    "tan-hung": ["B", "C", "I", "H", "G"],
+    "tan-thuan-tay": ["C", "D", "K", "J", "I"],
+    "tan-thuan-dong": ["D", "E", "L", "K"],
+    "tan-quy": ["F", "G", "H", "N", "M"],
+    "binh-thuan": ["H", "I", "J", "Pp", "O", "N"],
+    "phu-thuan": ["J", "K", "L", "R", "Q", "Pp"],
+    "tan-phong": ["M", "N", "O", "T", "S"],
+    "tan-phu": ["O", "Pp", "Q", "U", "T"],
+    "phu-my": ["Q", "R", "V", "U"]
+  };
+  function centroid(keys) {
+    var x = 0, y = 0;
+    keys.forEach(function (k) { x += P[k][0]; y += P[k][1]; });
+    return [x / keys.length, y / keys.length];
+  }
+  function countFor(wardId) {
+    return D.listings.filter(function (l) { return l.ward === wardId; }).length;
+  }
+  function buildMap() {
+    var shapes = D.wards.map(function (w) {
+      var keys = SHAPES[w.id];
+      var pts = keys.map(function (k) { return P[k].join(","); }).join(" ");
+      var c = centroid(keys);
+      var cls = NEW_WARD_CLASS[w.newWard] || "nw-split";
+      var n = countFor(w.id);
+      return '<g><polygon class="ward-shape ' + cls + '" data-ward="' + w.id + '" points="' + pts +
+        '" tabindex="0" role="button" aria-label="Phường ' + esc(w.name) + ', nay thuộc phường ' + esc(w.newWard) + '"><title>' +
+        esc(w.name) + " → " + esc(w.newWard) + "</title></polygon>" +
+        '<text class="ward-label" x="' + c[0] + '" y="' + (c[1] - 2) + '">' + esc(w.name) + "</text>" +
+        '<text class="ward-count" x="' + c[0] + '" y="' + (c[1] + 12) + '">' + n + " tin</text></g>";
+    }).join("");
+    var svg =
+      '<svg viewBox="0 0 400 330" role="img" aria-labelledby="mapTitle">' +
+      '<title id="mapTitle">Sơ đồ minh họa 10 phường cũ của Quận 7</title>' +
+      '<defs><pattern id="splitFill" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">' +
+      '<rect width="10" height="10" fill="var(--w-phuthuan)"/><rect width="5" height="10" fill="var(--w-tanmy)"/></pattern></defs>' +
+      '<path class="river" stroke-width="12" d="M4 28 C 90 18, 180 30, 260 20 S 350 26, 380 34"/>' +
+      '<path class="river" stroke-width="16" d="M382 30 C 396 90, 372 150, 386 210 S 372 290, 380 326"/>' +
+      '<text class="river-label" x="30" y="18">Kênh Tẻ · Quận 4</text>' +
+      '<text class="river-label" x="392" y="170" transform="rotate(90 392 170)" text-anchor="middle">Sông Sài Gòn · Thủ Đức</text>' +
+      '<text class="river-label" x="150" y="322" text-anchor="middle">Nhà Bè</text>' +
+      '<text class="river-label" x="6" y="170" transform="rotate(-90 6 170)" text-anchor="middle">Quận 8 · Bình Chánh</text>' +
+      shapes + "</svg>";
+    $("#map").innerHTML = svg;
+    $$(".ward-shape").forEach(function (el) {
+      el.addEventListener("click", function () { selectWard(el.getAttribute("data-ward")); });
+      el.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); selectWard(el.getAttribute("data-ward")); }
+      });
+    });
+    $("#legend").innerHTML = D.newWards.map(function (nw) {
+      return '<span><i style="background:var(' + NEW_WARD_VAR[nw.name] + ')"></i>P. ' + esc(nw.name) + " (mới)</span>";
+    }).join("") + '<span><i style="background:repeating-linear-gradient(45deg,var(--w-phuthuan) 0 3px,var(--w-tanmy) 3px 6px)"></i>Chia cho 2 phường</span>';
+  }
+
+  var currentWard = null;
+  function selectWard(id) {
+    currentWard = id;
+    $$(".ward-shape").forEach(function (el) {
+      var on = el.getAttribute("data-ward") === id;
+      el.classList.toggle("active", on);
+      el.classList.toggle("dim", !!id && !on);
+    });
+    renderWardPanel();
+    state.ward = id || "";
+    $("#f-ward").value = state.ward;
+    projFilter = id || "all";
+    renderProjChips();
+    renderProjects();
+    renderListings();
+  }
+
+  function renderWardPanel() {
+    var el = $("#ward-panel");
+    if (!currentWard) {
+      el.innerHTML =
+        "<h3>Quận 7 nay gồm 4 phường</h3>" +
+        '<p class="sub">Từ 1/7/2025, cấp quận không còn; 10 phường cũ của Quận 7 được sắp xếp lại thành 4 phường mới (Nghị quyết 1685/NQ-UBTVQH15). Trang này vẫn dùng tên phường cũ cho quen thuộc.</p>' +
+        '<ul class="newward-list">' + D.newWards.map(function (nw) {
+          return '<li><i style="background:var(' + NEW_WARD_VAR[nw.name] + ')"></i><span><b>' + esc(nw.name) + "</b>: " + esc(nw.from) + "</span></li>";
+        }).join("") + "</ul>" +
+        '<p class="sub">Chạm vào một phường trên sơ đồ để xem dự án và tin rao trong phường đó.</p>';
+      return;
+    }
+    var w = wardById[currentWard];
+    var projs = D.projects.filter(function (p) { return p.wards.indexOf(w.id) >= 0; });
+    var n = countFor(w.id);
+    el.innerHTML =
+      '<span class="pill">Nay thuộc phường ' + esc(w.newWard) + "</span>" +
+      "<h3>Phường " + esc(w.name) + " (cũ)</h3>" +
+      '<p class="sub">' + esc(w.note) + "</p>" +
+      (projs.length ? "<div><b>Dự án, khu dân cư:</b><ul>" + projs.map(function (p) { return "<li>" + esc(p.name) + "</li>"; }).join("") + "</ul></div>" : "") +
+      '<div class="cta"><a class="btn" href="#tin-rao">Xem ' + n + ' tin trong phường</a><button class="btn ghost" type="button" id="clear-ward">Bỏ chọn</button></div>';
+    $("#clear-ward").addEventListener("click", function () { selectWard(null); });
+  }
+
+  /* ---------- Projects ---------- */
+  var projFilter = "all";
+  function renderProjChips() {
+    var used = {};
+    D.projects.forEach(function (p) { p.wards.forEach(function (w) { used[w] = 1; }); });
+    var chips = [{ id: "all", name: "Tất cả" }].concat(D.wards.filter(function (w) { return used[w.id]; }));
+    $("#proj-chips").innerHTML = chips.map(function (c) {
+      return '<button type="button" class="chip" data-id="' + c.id + '" aria-pressed="' + (projFilter === c.id) + '">' + esc(c.name) + "</button>";
+    }).join("");
+    $$("#proj-chips .chip").forEach(function (b) {
+      b.addEventListener("click", function () {
+        projFilter = b.getAttribute("data-id");
+        renderProjChips();
+        renderProjects();
+      });
+    });
+  }
+  function priceBox(p) {
+    if (!p.priceRange) return '<div class="price-box">Giá tham khảo: <b>đang cập nhật</b><small>Chưa có số liệu công khai đủ tin cậy</small></div>';
+    var r = p.priceRange;
+    var v = r.min === r.max ? fmtNum(r.min, 0) : fmtNum(r.min, 0) + "–" + fmtNum(r.max, 0);
+    return '<div class="price-box">' + esc(r.basis) + ": <b>" + v + " " + esc(r.unit) + "</b><small>Nguồn: " + esc(r.source) + ", " + esc(r.date) + "</small></div>";
+  }
+  function renderProjects() {
+    var list = D.projects.filter(function (p) { return projFilter === "all" || p.wards.indexOf(projFilter) >= 0; });
+    $("#proj-grid").innerHTML = list.map(function (p) {
+      var wards = p.wards.map(function (id) { return wardById[id].name; }).join(", ");
+      var newW = p.wards.map(function (id) { return wardById[id].newWard; }).filter(function (v, i, a) { return a.indexOf(v) === i; }).join(", ");
+      var n = D.listings.filter(function (l) { return l.project === p.id; }).length;
+      return '<article class="card proj">' +
+        '<span class="pill muted">' + esc(p.kind) + "</span>" +
+        "<h3>" + esc(p.name) + "</h3>" +
+        '<dl class="meta"><dt>Chủ đầu tư</dt><dd>' + esc(p.developer) + "</dd>" +
+        "<dt>Phường cũ</dt><dd>" + esc(wards) + "</dd>" +
+        "<dt>Phường mới</dt><dd>" + esc(newW) + "</dd>" +
+        "<dt>Bàn giao</dt><dd>" + esc(p.year) + "</dd></dl>" +
+        "<p>" + esc(p.desc) + "</p>" +
+        (p.subareas ? '<div class="subareas">' + p.subareas.map(function (s) { return "<span>" + esc(s) + "</span>"; }).join("") + "</div>" : "") +
+        priceBox(p) +
+        (n ? '<div class="proj-actions"><button type="button" class="linkbtn" data-proj="' + p.id + '">Xem ' + n + " tin trong dự án →</button></div>" : "") +
+        "</article>";
+    }).join("");
+    $$("#proj-grid .linkbtn").forEach(function (b) {
+      b.addEventListener("click", function () {
+        state.project = b.getAttribute("data-proj");
+        state.ward = "";
+        $("#f-ward").value = "";
+        renderListings();
+        $("#tin-rao").scrollIntoView();
+      });
+    });
+  }
+
+  /* ---------- Listings & filters ---------- */
+  var PRICE_BUCKETS = {
+    ban: [
+      { id: "", name: "Mọi mức giá" },
+      { id: "0-3", name: "Dưới 3 tỷ", min: 0, max: 3e9 },
+      { id: "3-5", name: "3 – 5 tỷ", min: 3e9, max: 5e9 },
+      { id: "5-10", name: "5 – 10 tỷ", min: 5e9, max: 10e9 },
+      { id: "10-20", name: "10 – 20 tỷ", min: 10e9, max: 20e9 },
+      { id: "20-", name: "Trên 20 tỷ", min: 20e9, max: Infinity }
+    ],
+    thue: [
+      { id: "", name: "Mọi mức giá" },
+      { id: "0-10", name: "Dưới 10 triệu/tháng", min: 0, max: 10e6 },
+      { id: "10-20", name: "10 – 20 triệu/tháng", min: 10e6, max: 20e6 },
+      { id: "20-50", name: "20 – 50 triệu/tháng", min: 20e6, max: 50e6 },
+      { id: "50-", name: "Trên 50 triệu/tháng", min: 50e6, max: Infinity }
+    ],
+    all: [{ id: "", name: "Chọn Bán hoặc Thuê để lọc giá" }]
+  };
+  var AREA_BUCKETS = [
+    { id: "", name: "Mọi diện tích" },
+    { id: "0-50", name: "Dưới 50 m²", min: 0, max: 50 },
+    { id: "50-80", name: "50 – 80 m²", min: 50, max: 80 },
+    { id: "80-120", name: "80 – 120 m²", min: 80, max: 120 },
+    { id: "120-200", name: "120 – 200 m²", min: 120, max: 200 },
+    { id: "200-", name: "Trên 200 m²", min: 200, max: Infinity }
+  ];
+  var state = { mode: "all", ward: "", type: "", price: "", area: "", q: "", sort: "new", project: "" };
+
+  function options(arr, sel) {
+    return arr.map(function (o) { return '<option value="' + o.id + '"' + (o.id === sel ? " selected" : "") + ">" + esc(o.name) + "</option>"; }).join("");
+  }
+  function buildFilters() {
+    $("#f-ward").innerHTML = options([{ id: "", name: "Tất cả phường" }].concat(D.wards.map(function (w) { return { id: w.id, name: w.name + " (→ " + w.newWard + ")" }; })), state.ward);
+    $("#f-type").innerHTML = options([{ id: "", name: "Mọi loại" }].concat(D.types), state.type);
+    $("#f-area").innerHTML = options(AREA_BUCKETS, state.area);
+    fillPrice();
+    $$("#f-mode button").forEach(function (b) {
+      b.addEventListener("click", function () {
+        state.mode = b.getAttribute("data-mode");
+        state.price = "";
+        $$("#f-mode button").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+        fillPrice();
+        renderListings();
+      });
+    });
+    [["#f-ward", "ward"], ["#f-type", "type"], ["#f-price", "price"], ["#f-area", "area"], ["#f-sort", "sort"]].forEach(function (pair) {
+      $(pair[0]).addEventListener("change", function (e) {
+        state[pair[1]] = e.target.value;
+        if (pair[1] === "ward") { syncMapToWard(); }
+        renderListings();
+      });
+    });
+    $("#f-q").addEventListener("input", function (e) { state.q = e.target.value; renderListings(); });
+    $("#f-reset").addEventListener("click", resetFilters);
+  }
+  function syncMapToWard() {
+    currentWard = state.ward || null;
+    $$(".ward-shape").forEach(function (el) {
+      var on = el.getAttribute("data-ward") === currentWard;
+      el.classList.toggle("active", on);
+      el.classList.toggle("dim", !!currentWard && !on);
+    });
+    renderWardPanel();
+    projFilter = currentWard || "all";
+    renderProjChips();
+    renderProjects();
+  }
+  function fillPrice() {
+    var sel = $("#f-price");
+    sel.innerHTML = options(PRICE_BUCKETS[state.mode], state.price);
+    sel.disabled = state.mode === "all";
+  }
+  function resetFilters() {
+    state = { mode: "all", ward: "", type: "", price: "", area: "", q: "", sort: state.sort, project: "" };
+    $$("#f-mode button").forEach(function (x) { x.setAttribute("aria-pressed", String(x.getAttribute("data-mode") === "all")); });
+    $("#f-q").value = "";
+    buildSelectValues();
+    syncMapToWard();
+    renderListings();
+  }
+  function buildSelectValues() {
+    $("#f-ward").value = state.ward; $("#f-type").value = state.type; $("#f-area").value = state.area;
+    fillPrice();
+  }
+  function norm(s) {
+    return String(s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/đ/g, "d");
+  }
+  function filtered() {
+    var pb = (PRICE_BUCKETS[state.mode] || []).filter(function (b) { return b.id === state.price; })[0];
+    var ab = AREA_BUCKETS.filter(function (b) { return b.id === state.area; })[0];
+    var q = norm(state.q);
+    var out = D.listings.filter(function (l) {
+      if (state.mode !== "all" && l.mode !== state.mode) return false;
+      if (state.ward && l.ward !== state.ward) return false;
+      if (state.type && l.type !== state.type) return false;
+      if (state.project && l.project !== state.project) return false;
+      if (pb && pb.id && !(l.price >= pb.min && l.price < pb.max)) return false;
+      if (ab && ab.id && !(l.area >= ab.min && l.area < ab.max)) return false;
+      if (q) {
+        var p = projById[l.project];
+        var hay = norm([l.title, l.address, l.note, p && p.name, wardById[l.ward] && wardById[l.ward].name, typeById[l.type] && typeById[l.type].name].join(" "));
+        if (hay.indexOf(q) < 0) return false;
+      }
+      return true;
+    });
+    var s = state.sort;
+    out.sort(function (a, b) {
+      if (s === "price-asc") return a.price - b.price;
+      if (s === "price-desc") return b.price - a.price;
+      if (s === "area-desc") return b.area - a.area;
+      if (a.sample !== b.sample) return a.sample ? 1 : -1;
+      return 0;
+    });
+    return out;
+  }
+
+  var THUMB_HUE = { "can-ho": 165, "nha-pho": 30, "biet-thu": 95, "dat-nen": 45, "mat-bang": 215 };
+  function thumb(l) {
+    var h = THUMB_HUE[l.type] || 165;
+    var sky = "hsl(" + h + " 45% 86%)", sky2 = "hsl(" + h + " 40% 74%)", b1 = "hsl(" + h + " 30% 42%)", b2 = "hsl(" + h + " 28% 32%)", win = "hsl(48 90% 82%)";
+    var g = '<defs><linearGradient id="g' + l.id + '" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="' + sky + '"/><stop offset="1" stop-color="' + sky2 + '"/></linearGradient></defs>' +
+      '<rect width="320" height="180" fill="url(#g' + l.id + ')"/><rect y="150" width="320" height="30" fill="' + b2 + '" opacity=".35"/>';
+    var art = "";
+    if (l.type === "can-ho") {
+      art = '<rect x="70" y="40" width="70" height="120" rx="3" fill="' + b1 + '"/><rect x="150" y="20" width="80" height="140" rx="3" fill="' + b2 + '"/><rect x="238" y="70" width="46" height="90" rx="3" fill="' + b1 + '"/>';
+      for (var r = 0; r < 6; r++) for (var c = 0; c < 4; c++) art += '<rect x="' + (158 + c * 18) + '" y="' + (30 + r * 20) + '" width="10" height="10" fill="' + win + '" opacity="' + ((r + c) % 3 ? .9 : .4) + '"/>';
+    } else if (l.type === "nha-pho") {
+      for (var i = 0; i < 4; i++) {
+        var x = 50 + i * 56, top = 70 - (i % 2) * 16;
+        art += '<rect x="' + x + '" y="' + top + '" width="50" height="' + (160 - top) + '" fill="' + (i % 2 ? b1 : b2) + '"/>';
+        art += '<rect x="' + (x + 10) + '" y="' + (top + 14) + '" width="30" height="16" fill="' + win + '"/><rect x="' + (x + 10) + '" y="' + (top + 42) + '" width="30" height="16" fill="' + win + '" opacity=".7"/>';
+      }
+    } else if (l.type === "biet-thu") {
+      art = '<circle cx="62" cy="120" r="26" fill="hsl(120 30% 40%)"/><circle cx="262" cy="118" r="30" fill="hsl(120 30% 36%)"/>' +
+        '<polygon points="100,90 160,52 220,90" fill="' + b2 + '"/><rect x="108" y="90" width="104" height="70" fill="' + b1 + '"/>' +
+        '<rect x="122" y="104" width="22" height="18" fill="' + win + '"/><rect x="176" y="104" width="22" height="18" fill="' + win + '"/><rect x="150" y="128" width="20" height="32" fill="' + b2 + '"/>';
+    } else if (l.type === "dat-nen") {
+      art = '<polygon points="40,160 110,110 290,110 280,160" fill="hsl(40 45% 62%)"/>' +
+        '<polyline points="110,110 104,160" stroke="' + b2 + '" stroke-width="2" stroke-dasharray="4 4" fill="none"/><polyline points="200,110 200,160" stroke="' + b2 + '" stroke-width="2" stroke-dasharray="4 4" fill="none"/>' +
+        '<rect x="186" y="74" width="4" height="40" fill="' + b2 + '"/><rect x="190" y="74" width="32" height="18" fill="hsl(0 60% 55%)"/>';
+    } else {
+      art = '<rect x="60" y="30" width="200" height="130" fill="' + b2 + '"/><rect x="60" y="110" width="200" height="50" fill="' + b1 + '"/>' +
+        '<rect x="74" y="118" width="80" height="42" fill="' + win + '" opacity=".85"/><rect x="166" y="118" width="80" height="42" fill="' + win + '" opacity=".85"/>';
+      for (var rr = 0; rr < 3; rr++) art += '<rect x="74" y="' + (42 + rr * 22) + '" width="172" height="10" fill="' + win + '" opacity=".35"/>';
+    }
+    return '<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" aria-hidden="true">' + g + art + "</svg>";
+  }
+
+  function renderListings() {
+    var list = filtered();
+    var proj = state.project ? projById[state.project] : null;
+    var bits = [];
+    if (proj) bits.push('dự án <b>' + esc(proj.name) + '</b> <button type="button" class="linkbtn" id="clear-proj">bỏ lọc dự án</button>');
+    $("#result-count").innerHTML = "<b>" + list.length + "</b> tin phù hợp" + (bits.length ? " · " + bits.join(" ") : "");
+    var cp = $("#clear-proj");
+    if (cp) cp.addEventListener("click", function () { state.project = ""; renderListings(); });
+    if (!list.length) {
+      $("#listing-grid").innerHTML = '<div class="card empty">Không có tin nào khớp bộ lọc. <button type="button" class="linkbtn" id="empty-reset">Xóa bộ lọc</button></div>';
+      $("#empty-reset").addEventListener("click", resetFilters);
+      return;
+    }
+    $("#listing-grid").innerHTML = list.map(function (l) {
+      var w = wardById[l.ward] || { name: l.ward, newWard: "" };
+      var p = projById[l.project];
+      var facts = [];
+      facts.push(fmtNum(l.area, 0) + " m²");
+      if (l.bedrooms) facts.push(l.bedrooms + " PN");
+      if (l.bathrooms) facts.push(l.bathrooms + " WC");
+      var pm = perM2(l);
+      if (pm) facts.push(pm);
+      return '<article class="card listing">' +
+        '<div class="thumb">' + thumb(l) + '<div class="tags">' +
+        (l.sample ? '<span class="pill sample">Tin mẫu</span>' : "") +
+        '<span class="pill">' + (l.mode === "thue" ? "Cho thuê" : "Bán") + "</span>" +
+        '<span class="pill muted">' + esc((typeById[l.type] || {}).name || l.type) + "</span></div></div>" +
+        '<div class="body"><div class="price">' + fmtPrice(l) + "</div>" +
+        "<h3>" + esc(l.title) + (p ? " · " + esc(p.name) : "") + "</h3>" +
+        '<div class="facts">' + facts.map(function (f) { return "<span>" + f + "</span>"; }).join("") + "</div>" +
+        '<div class="where">' + (l.address ? esc(l.address) + ", " : "") + "P. " + esc(w.name) + (w.newWard ? " <span class=\"sub\">(nay P. " + esc(w.newWard) + ")</span>" : "") + "</div>" +
+        (l.note ? '<div class="note">' + esc(l.note) + "</div>" : "") +
+        (l.sample ? '<div class="note">Tin minh họa bố cục, không phải căn đang bán/cho thuê thật.</div>' : (l.contact ? '<div class="note">Liên hệ: ' + esc(l.contact) + "</div>" : "")) +
+        "</div></article>";
+    }).join("");
+  }
+
+  /* ---------- Market notes, sources, stats ---------- */
+  function renderStatic() {
+    var real = D.listings.filter(function (l) { return !l.sample; }).length;
+    $("#stat-wards").textContent = D.wards.length;
+    $("#stat-projects").textContent = D.projects.length;
+    $("#stat-listings").textContent = D.listings.length;
+    $("#stat-listings-label").textContent = real ? "tin rao" : "tin mẫu";
+    $("#market-notes").innerHTML = D.marketNotes.map(function (n) {
+      return '<div class="card note-item">' + esc(n.text) + "<small>Nguồn: " + esc(n.source) + " · " + esc(n.date) + "</small></div>";
+    }).join("");
+    $("#sources").innerHTML = D.sources.map(function (s) {
+      return '<li><a href="' + esc(s.url) + '" target="_blank" rel="noopener noreferrer">' + esc(s.name) + "</a> <small>(" + esc(s.date) + ")</small></li>";
+    }).join("");
+    $("#updated").textContent = D.updated;
+    var hasSample = D.listings.some(function (l) { return l.sample; });
+    $("#sample-note").hidden = !hasSample;
+  }
+
+  function init() {
+    buildMap();
+    renderWardPanel();
+    renderProjChips();
+    renderProjects();
+    buildFilters();
+    renderListings();
+    renderStatic();
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
+})();
+
+</script>
+</body>
+</html>
